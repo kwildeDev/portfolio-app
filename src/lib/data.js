@@ -59,15 +59,6 @@ const CONTACTS = [
 	}
 ];
 
-// I began my career in software development in the late 1990s to early 2000s as an analyst programmer, working on bespoke business ERP systems. While my career took a different path after that, my passion for creating software remained strong, and it was always my dream to return to it.
-// I started building websites as a hobby and volunteered for various projects. During a job in a school office, I developed an interest in Python and saw its potential for automation. Since then, I've been on a mission to learn as much as I can, building my skills and knowledge through courses like Code First Girls. More recently, completing a JavaScript bootcamp with Northcoders has really deepened my expertise and expanded my understanding. 
-// Working on projects—whether solo or collaboratively—truly allows me to feel like my authentic self and brings me happiness. The combination of creativity and problem-solving gives me real satisfaction, especially when I can create something that provides a meaningful solution and positively impacts people's lives.
-
-// I began my career in software development in the late 1990s to early 2000s as an analyst programmer, working on bespoke business ERP systems. While my career took a different direction after that, my passion for creating software remained strong, and it was always my goal to return to it.
-// I started building websites as a hobby and volunteered for various projects. During a role in a school office, I developed an interest in Python and its potential for automation. Since then, I’ve been focused on expanding my knowledge through courses from Code First Girls, along with self-directed learning and personal projects. More recently, completing a JavaScript bootcamp with Northcoders has deepened my expertise and broadened my understanding.
-// Working on projects—whether solo or collaboratively—lets me merge creativity with problem-solving, which I find especially rewarding. I enjoy creating solutions that have a meaningful impact and help improve people's lives.
-
-
 
 const ABOUT = {
 	paragraphs: [
@@ -196,7 +187,42 @@ const ABOUT = {
 
 const PROJECTS = [
 	{
-	    id: 1,
+		id: 1,
+		title: 'Club Ledger',
+		organisation: '',
+		year: '2025',
+		type: 'C# and Razor Pages Development',
+		description: [
+			'This project is an ASP.NET Core Razor Pages bookkeeping application aimed at club treasurers, built with C#. The SQL Server database is run via Docker. Styling is managed using SASS extending Bootstrap.',
+			'The core technical achievement is the "behind the scenes" Double-Entry Logic Engine.', 
+			'I designed the system to fully automate financial integrity: the user only inputs key transaction components, and the system automatically generates the required paired LedgerLine records for every JournalEntry.', 
+			'This abstraction simplifies user interaction while enforcing strict accounting rules defined in core models like JournalEntry, LedgerLine, Account, and Contact.',
+			'The project is in progress. All fundamental models and database migrations are complete, and basic CRUD pages for data creation and viewing are functional.', 
+			'Next steps focus on finalizing the transaction automation logic and integrating the SASS front-end compilation.',
+		],
+		photo: { src: '', alt: '' },
+
+		link: 'https://github.com/kwildeDev/club-ledger',
+		skills: ['C#', 'ASP.NET Core', 'Razor Pages']
+	},
+	{
+		id: 2,
+		title: 'Meds Manager',
+		organisation: '',
+		year: '2025',
+		type: 'React Native Mobile App',
+		description: [
+			'This React Native mobile app focuses on medication and prescription management, built under the constraints of the Expo Snack environment (due to local emulator issues). I implemented the core Creation, Reading, and Deletion logic for medications and their daily reminders.',
+			'The most challenging technical feature completed so far is the dynamic form management for adding array fields (multiple dose reminders) using React Hook Form. I architected the prescription tracker using a State Machine pattern to handle the entire, complex refill process, from setting low stock warnings to scheduling collection reminders.',
+			'The project is in progress. Immediate next steps include implementing update (edit) functionality, integrating Expo Notifications, and migrating data from AsyncStorage to Firebase Firestore to enable secure cloud sync and improve application permanence.',
+		],
+		photo: { src: '/photos/meds-manager.png', alt: 'Meds Manager Home Screen' },
+
+		link: 'https://github.com/kwildeDev/meds-manager',
+		skills: ['React Native', 'React Native Paper']
+	},
+	{
+	    id: 3,
 	    title: 'Scene Locally',
 	    organisation: 'Tech Returners Launchpad',
 	    year: 'May 2025',
@@ -221,7 +247,7 @@ const PROJECTS = [
 		skills: ['TypeScript', 'React', 'Chakra UI', 'Node.js', 'Express', 'PostgreSQL', 'JWT'],
 	},
 	{
-		id: 2,
+		id: 4,
 		title: 'Portfolio App',
 		organisation: '',
 		year: 'December 2024',
@@ -237,7 +263,7 @@ const PROJECTS = [
 		skills: ['JavaScript', 'Sveltekit', 'Tailwind CSS']
 	},
 	{
-		id: 3,
+		id: 5,
 		title: 'Time Treasures',
 		organisation: 'Northcoders',
 		year: 'November 2024',
@@ -253,7 +279,7 @@ const PROJECTS = [
 		skills: ['JavaScript', 'React Native', 'Node.js', 'PostgreSQL', 'Victory Native XL', 'Redux']
 	},
 	{
-		id: 4,
+		id: 6,
 		title: 'NC News',
 		organisation: 'Northcoders',
 		year: 'October 2024 to present',
@@ -269,7 +295,7 @@ const PROJECTS = [
 		skills: ['JavaScript', 'Node.js', 'Express', 'PostgreSQL', 'React', 'Material UI']
 	},
 	{
-		id: 4,
+		id: 7,
 		title: 'Recipe Search using Edamam API',
 		organisation: 'Code First Girls',
 		year: 'February 2024',
