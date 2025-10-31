@@ -4,10 +4,13 @@
 	import Header from '$lib/Header.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
-	import DATA from '$lib/data';
+//	import DATA from '$lib/data';
 	import Experience from '$lib/Experience.svelte';
 	import FadeInSection from '$lib/FadeInSection.svelte';
 	import Skills from '$lib/Skills.svelte';
+	export let data;
+	
+	const { personal, contacts, source, skills, about, projects } = data;
 
 	onMount(async () => {
 		if (typeof window !== 'undefined') {
@@ -19,6 +22,7 @@
 			}
 			const toTopButton = document.getElementById('to-top-button');
 			window.onscroll = function () {
+				if (!toTopButton) return;
 				if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
 					toTopButton.classList.remove('hidden');
 				} else {
@@ -31,32 +35,33 @@
 	function goToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
+  
 </script>
 
 <div class="min-h-screen bg-primary text-neutral-gray lg:flex lg:justify-between lg:gap-4 font-sans">
 	<a href="#main-content" class="sr-only text-center text-2xl underline focus:not-sr-only"
 		>Skip to main content</a
 	>
-	<Header personal={DATA.PERSONAL} contacts={DATA.CONTACTS} />
+	<Header personal={personal} contacts={contacts} />
 	<main id="main-content" class="text-neutral-white lg:w-[85%]">
 		<!-- pl-6 pr-6 -->
 		<div id="about" class="lg:pt-24 lg:w-[95%]">
 			<!-- pt-24 -->
-			<About paragraphs={DATA.ABOUT.paragraphs} />
+			<About paragraphs={about.paragraphs} />
 		</div>
 		<div id="about" class="lg:w-[95%]">
 			<FadeInSection>
-				<Skills skills={DATA.SKILLS} />
+				<Skills skills={skills} />
 			</FadeInSection>
 		</div>
 		<div id="experience" class="lg:w-[95%]">
 			<FadeInSection>
-				<Experience experiences={DATA.ABOUT.experience} education={DATA.ABOUT.education} />
+				<Experience experiences={about.experience} />
 			</FadeInSection>
 		</div>
 		<div id="projects" class="lg:w-[95%]">
 			<FadeInSection>
-				<Projects projects={DATA.PROJECTS} skills={DATA.SKILLS} />
+				<Projects projects={projects} />
 			</FadeInSection>
 		</div>
 		<div id="contact" class="lg:w-[95%]">
@@ -65,8 +70,8 @@
 			</FadeInSection>
 		</div>
 		<div class="mt-0 w-full py-6 pl-6 lg:ml-auto">
-			<a href={DATA.SOURCE.src} target="_blank"
-				>{`© ${DATA.SOURCE.creation_year} ${DATA.PERSONAL.name}. All Rights Reserved.`}</a
+			<a href={source.src} target="_blank"
+				>{`© ${source.creation_year} ${personal.name}. All Rights Reserved.`}</a
 			>
 		</div>
 	</main>

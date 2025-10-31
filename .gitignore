@@ -21,3 +21,9 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Migration Scripts
+/scripts/importData.js
+
+# Data
+/src/lib/data.js
