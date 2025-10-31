@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { getDb } from '$lib/db.js';
 import { serializeForClient } from '$lib/utils';
 
