@@ -27,3 +27,4 @@ vite.config.ts.timestamp-*
 
 # Data
 /src/lib/data.js
+/src/generated/prisma

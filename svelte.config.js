@@ -17,7 +17,10 @@ const config = {
 			// instead of creating a single one for the entire app.
 			// if `edge` is true, this option cannot be used
 			split: false
-		})
+		}),
+		prerender: {
+			handleHttpError: 'warn' // Don't fail build on prerender errors
+		}
 	},
 
 	preprocess: [mdsvex(), vitePreprocess()],

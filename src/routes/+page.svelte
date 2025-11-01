@@ -4,12 +4,11 @@
 	import Header from '$lib/Header.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
-//	import DATA from '$lib/data';
 	import Experience from '$lib/Experience.svelte';
 	import FadeInSection from '$lib/FadeInSection.svelte';
 	import Skills from '$lib/Skills.svelte';
+
 	export let data;
-	
 	const { personal, contacts, source, skills, about, projects } = data;
 
 	onMount(async () => {
@@ -35,23 +34,24 @@
 	function goToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-  
 </script>
 
-<div class="min-h-screen bg-primary text-neutral-gray lg:flex lg:justify-between lg:gap-4 font-sans">
+<div
+	class="min-h-screen bg-primary font-sans text-neutral-gray lg:flex lg:justify-between lg:gap-4"
+>
 	<a href="#main-content" class="sr-only text-center text-2xl underline focus:not-sr-only"
 		>Skip to main content</a
 	>
-	<Header personal={personal} contacts={contacts} />
+	<Header {personal} {contacts} />
 	<main id="main-content" class="text-neutral-white lg:w-[85%]">
 		<!-- pl-6 pr-6 -->
-		<div id="about" class="lg:pt-24 lg:w-[95%]">
+		<div id="about" class="lg:w-[95%] lg:pt-24">
 			<!-- pt-24 -->
 			<About paragraphs={about.paragraphs} />
 		</div>
 		<div id="about" class="lg:w-[95%]">
 			<FadeInSection>
-				<Skills skills={skills} />
+				<Skills {skills} />
 			</FadeInSection>
 		</div>
 		<div id="experience" class="lg:w-[95%]">
@@ -61,7 +61,7 @@
 		</div>
 		<div id="projects" class="lg:w-[95%]">
 			<FadeInSection>
-				<Projects projects={projects} />
+				<Projects {projects} />
 			</FadeInSection>
 		</div>
 		<div id="contact" class="lg:w-[95%]">
@@ -79,7 +79,7 @@
 		id="to-top-button"
 		on:click={goToTop}
 		title="Go To Top"
-		class="z-90 button-shadow button-shadow-hover fixed bottom-8 right-8 flex hidden h-16 w-16 items-center justify-center rounded-full border-0 bg-accent-salmon text-3xl font-bold text-primary drop-shadow-md lg:hover:bg-accent-rose active:bg-accent-dark transition duration-200"
+		class="z-90 button-shadow button-shadow-hover fixed bottom-8 right-8 flex hidden h-16 w-16 items-center justify-center rounded-full border-0 bg-accent-salmon text-3xl font-bold text-primary drop-shadow-md transition duration-200 active:bg-accent-dark lg:hover:bg-accent-rose"
 		aria-label="Go to top"
 	>
 		<svg
